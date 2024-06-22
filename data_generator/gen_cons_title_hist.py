@@ -166,7 +166,15 @@ def generate_consultant_data(num_titles, start_year, end_year):
     session.commit()
     session.close()
     
-def assign_business_units_to_consultants(business_unit_distribution):
+def assign_business_units_to_consultants():
+
+    business_unit_distribution = {
+        "North America": 0.5,
+        "Central and South America": 0.1,
+        "EMEA": 0.2,
+        "Asia Pacific": 0.2
+    }
+
     Session = sessionmaker(bind=engine)
     session = Session()
 
@@ -188,3 +196,7 @@ def assign_business_units_to_consultants(business_unit_distribution):
 
     session.commit()
     session.close()
+
+def main(num_titles, start_year, end_year):
+    generate_consultant_data(num_titles, start_year, end_year)
+    assign_business_units_to_consultants()

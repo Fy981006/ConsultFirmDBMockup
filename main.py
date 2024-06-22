@@ -8,6 +8,7 @@ from data_generator.gen_project import main as project
 from data_generator.gen_proj_billing_rate import main as proj_billing_rate
 from data_generator.gen_deliverable import main as deliverable
 from data_generator.gen_proj_expense import main as proj_expense
+from data_generator.gen_payroll import main as generate_payroll
 
 def main():
     #INITIALIZE DB
@@ -26,10 +27,10 @@ def main():
     title()
 
     #CONSULTANT AND TITLE HISTORY
-    consult_title(1000, 10)
+    consult_title(1000, 1999, 2022)
 
     # PROJECT
-    project(100)
+    project(100, 1999, 2022)
 
     #PROJECT BILLING RATE
     proj_billing_rate()
@@ -40,7 +41,8 @@ def main():
     #PROJECT EXPENSE
     proj_expense()
 
-
+    # Payroll
+    generate_payroll()
 
 
 if __name__ == "__main__":
